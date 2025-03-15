@@ -3,6 +3,8 @@ import Header from './Header'
 import { checkValidData } from '../utils/Validate'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from 'firebase/auth'
 import {auth} from '../utils/firebase'
+import { Netflix_BG } from '../utils/constants'
+
 
 const Login = () => {
     const [isSignInForm, setSignInFOrm] = useState(true);
@@ -25,7 +27,6 @@ const Login = () => {
 
            .then((userCredential) => {
              const user = userCredential.user;
-             console.log(user);
           })
 
            .catch((error) => {
@@ -56,7 +57,7 @@ const Login = () => {
     <div className='flex flex-wrap'>
         <Header/>
         <div className='absolute z-0'>
-         <img className= 'w-400 h-screen object-cover' src='https://analyticsindiamag.com/wp-content/uploads/2019/05/apps.55787.9007199266246365.687a10a8-4c4a-4a47-8ec5-a95f70d8852d.jpg' alt='img'/>
+         <img className= 'w-400 h-screen object-cover' src= {Netflix_BG} alt='img'/>
         </div>
         <div>
             <form className='absolute z-10 bg-black opacity-80 py-15 rounded-lg mx-auto right-0 left-0 mt-32 w-65 text-white' onSubmit={(e)=>{e.preventDefault()}}>
